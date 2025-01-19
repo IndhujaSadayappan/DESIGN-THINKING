@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+header {
+  display: flex;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    to right,
+    rgb(215, 0, 0),
+    #ff0000,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab,
+    #a960ee,
+    #f833ff,
+    #90e0ff
+  );
+  background-size: 400% 400%;
+  animation: gradient 12s linear infinite;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar li {
+  margin: 0 20px;
+}
+
+#navbar li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+#navbar li a:hover {
+  color: #ffd700;
+}
+.container-fluid {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: 100px;
+  background: #0a0a0a;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-attachment: scroll;
+  background-color: #0a0a0a;
+}
+
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #ffffff;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 12s ease forwards infinite;
+}
+
+.cube:nth-child(2n) {
+  border-color: #ffffff;
+}
+
+.cube:nth-child(2) {
+  animation-delay: 2s;
+  left: 25vw;
+  top: 40vh;
+}
+
+.cube:nth-child(3) {
+  animation-delay: 3s;
+  left: 75vw;
+  top: 50vh;
+}
+
+.cube:nth-child(4) {
+  animation-delay: 5s;
+  left: 90vw;
+  top: 30vh;
+}
+
+.cube:nth-child(5) {
+  animation-delay: 6s;
+  left: 10vw;
+  top: 85vh;
+}
+
+.cube:nth-child(6) {
+  animation-delay: 7s;
+  left: 50vw;
+  top: 10vh;
+}
+
+.dashboard-intro {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: fadeInDown 1.2s ease-in-out;
+}
+
+.dashboard-intro p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+main {
+  width: 90%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transform: perspective(1000px) rotateX(10deg);
+  animation: tilt 5s infinite alternate ease-in-out;
+}
+
+section {
+  padding: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+  border-radius: 8px;
+  animation: slideIn 0.6s ease-in-out;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label,
+textarea,
+select {
+  font-size: 1rem;
+  color: #000;
+}
+
+textarea,
+select,
+button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tilt {
+  0% {
+    transform: perspective(1000px) rotateX(10deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateX(0deg);
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}

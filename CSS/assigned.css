@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    color: #ffffff;
+  }
+  .container-fluid{
+    height: auto;
+    margin-top: 100px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #0a0a0a;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-attachment: scroll;
+    background-color: #0a0a0a;
+  }
+  
+  .cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #ffffff;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease forwards infinite;
+  }
+  
+  .cube:nth-child(2n) {
+    border-color: #ffffff ;
+  }
+  
+  .cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 25vw;
+    top: 40vh;
+  }
+  
+  .cube:nth-child(3) {
+    animation-delay: 3s;
+    left: 75vw;
+    top: 50vh;
+  }
+  
+  .cube:nth-child(4) {
+    animation-delay: 5s;
+    left: 90vw;
+    top: 30vh;
+  }
+  
+  .cube:nth-child(5) {
+    animation-delay: 6s;
+    left: 10vw;
+    top: 85vh;
+  }
+  
+  .cube:nth-child(6) {
+    animation-delay: 7s;
+    left: 50vw;
+    top: 10vh;
+  }
+  
+  @keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+  }
+  table {
+    width: 80%; 
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }
+  
+  table th, table td {
+    border: none;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  table td {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px; 
+  }
+  
+  .action-btn {
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #15181b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .remove-btn {
+    background-color: #dc3545;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-btn:hover {
+    background-color: #c82333;
+  }
+  
+  #search-section {
+    margin: 20px auto; 
+    text-align: center;
+  }
+  
+  #searchInput {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
