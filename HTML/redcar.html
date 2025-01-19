@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Development Workshop</title>
+    <style>
+        body{
+        background-color: black;
+    }
+   .container-fluid{
+    height: auto;
+    margin-top: 100px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: white;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-attachment: scroll;
+}
+
+.cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #ffffff;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease forwards infinite;
+}
+
+.cube:nth-child(2n) {
+    border-color: #ffffff ;
+}
+
+.cube:nth-child(2) {
+    animation-delay: 1s;
+    left: 25vw;
+    top: 40vh;
+}
+
+.cube:nth-child(3) {
+    animation-delay: 2s;
+    left: 75vw;
+    top: 50vh;
+}
+
+.cube:nth-child(4) {
+    animation-delay: 4s;
+    left: 90vw;
+    top: 30vh;
+}
+
+.cube:nth-child(5) {
+    animation-delay: 5s;
+    left: 10vw;
+    top: 85vh;
+}
+
+.cube:nth-child(6) {
+    animation-delay: 7s;
+    left: 50vw;
+    top: 10vh;
+}
+
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+.body {
+    margin-top: 10px;
+    padding: 10px;
+    opacity: 0.9;
+}
+  
+
+
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: #e9ecef;
+            padding: 10px;
+            border-left: 5px solid #007BFF;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .cta a:hover {
+            background: #0056b3;
+        }
+
+        .schedule {
+            margin-bottom: 1.5rem;
+        }
+
+        .schedule h3 {
+            color: #007BFF;
+        }
+
+        .schedule p {
+            margin-bottom: 0.5rem;
+        }
+        footer {
+    background-color: #000000;
+    margin-top: 15px;
+    border-top: 2px solid white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    opacity: 0.9;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer-section {
+    flex: 1 1 250px;
+    margin: 20px;
+  }
+
+  .footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 25px;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-section ul li a {
+    color: #0091ff;
+    text-decoration: none;
+  }
+
+  .footer-section ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-section ul.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin-left: -63%;
+  }
+
+  .footer-section ul.social-icons li {
+    display: inline-block;
+  }
+
+  .footer-section ul.social-icons li a {
+    font-size: 20px;
+    color: #007BFF;
+  }
+
+  .footer-section ul.social-icons li a:hover {
+    color: #0056b3;
+  }
+
+  form input {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  form button:hover {
+    background-color: #0056b3;
+  }
+
+  footer .footer-section button {
+    padding: 8px 16px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  footer .footer-section button:hover {
+    background-color: #218838;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+    }
+
+    .footer-section {
+      margin: 10px 0;
+    }
+
+    form input {
+      width: 100%;
+    }
+  }
+    </style>
+</head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="background">
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+            </div>
+        </div>
+    <div class="container">
+        <h1>Career Development Workshop</h1>
+
+        <div class="highlight">
+            <p>
+                <strong>Date:</strong> December 15, 2024 <br>
+                <strong>Time:</strong> 9:00 AM to 4:30 PM <br>
+                <strong>Venue:</strong> Kongu Engineering College, Erode
+            </p>
+        </div>
+
+        <h2>About the Workshop</h2>
+        <p>
+            The **Career Development Workshop** is designed to empower participants with the skills and knowledge needed to excel in their professional journeys. From understanding job market trends to mastering interview techniques, this comprehensive session covers everything you need to build a successful career. Engage in interactive activities, gain insights from industry leaders, and develop a roadmap to achieve your career goals.
+        </p>
+
+        <h2>Key Takeaways</h2>
+        <ul>
+            <li>Develop an effective resume that stands out to recruiters.</li>
+            <li>Learn advanced job search and application strategies.</li>
+            <li>Master interview techniques to leave a lasting impression.</li>
+            <li>Understand the importance of personal branding and networking.</li>
+            <li>Gain clarity on career paths and how to set achievable goals.</li>
+        </ul>
+
+        <h2>Who Should Attend?</h2>
+        <p>
+            This workshop is perfect for:
+        </p>
+        <ul>
+            <li>Final-year students preparing for campus placements.</li>
+            <li>Recent graduates looking for their first job.</li>
+            <li>Professionals aiming for a career change or progression.</li>
+            <li>Anyone seeking practical strategies for career growth.</li>
+        </ul>
+
+        <h2>Agenda</h2>
+        <div class="schedule">
+            <h3>Session Breakdown:</h3>
+            <p><strong>9:00 AM - 9:30 AM:</strong> Welcome and Introduction</p>
+            <p><strong>9:30 AM - 10:30 AM:</strong> Resume Building and Job Market Insights</p>
+            <p><strong>10:30 AM - 11:00 AM:</strong> Coffee Break</p>
+            <p><strong>11:00 AM - 12:30 PM:</strong> Mock Interviews and Feedback</p>
+            <p><strong>12:30 PM - 1:30 PM:</strong> Lunch Break</p>
+            <p><strong>1:30 PM - 2:30 PM:</strong> Personal Branding and Networking Skills</p>
+            <p><strong>2:30 PM - 4:00 PM:</strong> Creating a Career Development Plan</p>
+            <p><strong>4:00 PM - 4:30 PM:</strong> Wrap-Up and Closing Remarks</p>
+        </div>
+
+        <h2>Why Attend?</h2>
+        <p>
+            Building a successful career requires more than just technical skills. This workshop will help you navigate the competitive job market, develop a professional identity, and achieve long-term career growth. With practical insights and interactive sessions, you'll leave equipped to take charge of your career with confidence.
+        </p>
+
+        <div class="cta">
+            <a href="reg1.html">Register Now</a>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Contact Information</h3>
+            <p>For inquiries: <a href="mailto:contact@mentorconnect.com">contact@mentorconnect.com</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-icons">
+              <li>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="/privacy-policy" target="_blank">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" target="_blank">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Stay Updated</h3>
+            <form action="/subscribe" method="post">
+              <label for="email">Sign up for our newsletter:</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+
+          <div class="footer-section">
+            <h3>Accessibility</h3>
+            <button onclick="changeLanguage()">Change Language</button>
+            <button onclick="toggleAccessibilitySettings()">Accessibility Settings</button>
+          </div>
+
+          <div class="footer-section">
+            <p>© 2024 Mentor Connect. All rights reserved.</p>
+          </div>
+        </div>
+    </footer>
+     
+    <script>
+      function changeLanguage() {
+        alert('Language change feature coming soon!');
+      }
+
+      function toggleAccessibilitySettings() {
+        alert('Accessibility settings feature coming soon!');
+      }
+    </script>
+</body>
+
+</html>

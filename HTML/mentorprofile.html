@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Information</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2E3B55;
+    color: #FFF;
+}
+
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    background-color: #FFD700;
+    color: #2E3B55;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.mentors {
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: #F7F7F7;
+}
+
+.mentors h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2E3B55;
+}
+
+.mentor-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mentor-card {
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.mentor-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.mentor-card h3 {
+    font-size: 1.5rem;
+    color: #2E3B55;
+}
+
+.mentor-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 0;
+}
+
+.mentor-skills {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.contact-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #2E3B55;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.contact-button:hover {
+    background-color: #3A496B;
+}
+
+@media (max-width: 768px) {
+    .mentor-grid {
+        grid-template-columns: 1fr;
+    }
+}
+footer {
+    background-color: #000000;
+    margin-top: 15px;
+    border-top: 2px solid white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    opacity: 0.9;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer-section {
+    flex: 1 1 250px;
+    margin: 20px;
+  }
+
+  .footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 25px;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-section ul li a {
+    color: #0091ff;
+    text-decoration: none;
+  }
+
+  .footer-section ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-section ul.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin-left: -63%;
+  }
+
+  .footer-section ul.social-icons li {
+    display: inline-block;
+  }
+
+  .footer-section ul.social-icons li a {
+    font-size: 20px;
+    color: #007BFF;
+  }
+
+  .footer-section ul.social-icons li a:hover {
+    color: #0056b3;
+  }
+
+  form input {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  form button:hover {
+    background-color: #0056b3;
+  }
+
+  footer .footer-section button {
+    padding: 8px 16px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  footer .footer-section button:hover {
+    background-color: #218838;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+    }
+
+    .footer-section {
+      margin: 10px 0;
+    }
+
+    form input {
+      width: 100%;
+    }
+  }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar-container">
+            <button class="toggle-btn" onclick="toggleNavbar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menteeboard.html">Mentee</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="page1.html">Login</a></li>
+                <li><a href="mentee.html">Find Mentors</a></li>
+                <li><a href="event.html">Event details</a></li>
+                <li class="right"><a href="#">Log out <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Meet Our Mentors</h1>
+        <p>Our mentors are here to help you achieve your goals.</p>
+        <a href="#" class="cta-button">Contact a Mentor</a>
+    </section>
+
+   
+    <section class="mentors">
+        <h2>Our Mentors</h2>
+        <div class="mentor-grid">
+       
+            <div class="mentor-card">
+                <img src="mentor1.jpg" alt="Mentor 1" class="mentor-image">
+                <h3>John</h3>
+                <p>Software Engineer, 10+ years experience</p>
+                <p class="mentor-skills">Skills: Python, JavaScript, AI</p>
+                <a href="#" class="contact-button">Connect</a>
+            </div>
+     
+            <div class="mentor-card">
+                <img src="mentor2.jpg" alt="Mentor 2" class="mentor-image">
+                <h3>Jane </h3>
+                <p>Data Scientist, 8+ years experience</p>
+                <p class="mentor-skills">Skills: Data Analysis, Machine Learning, SQL</p>
+                <a href="#" class="contact-button">Connect</a>
+            </div>
+          
+             <div class="mentor-card">
+                <img src="mentor2.jpg" alt="Mentor 2" class="mentor-image">
+                <h3>Jane </h3>
+                <p>Data Scientist, 8+ years experience</p>
+                <p class="mentor-skills">Skills: Data Analysis, Machine Learning, SQL</p>
+                <a href="#" class="contact-button">Connect</a>
+            </div>
+        
+             <div class="mentor-card">
+                <img src="mentor2.jpg" alt="Mentor 2" class="mentor-image">
+                <h3>Jane </h3>
+                <p>Data Scientist, 8+ years experience</p>
+                <p class="mentor-skills">Skills: Data Analysis, Machine Learning, SQL</p>
+                <a href="#" class="contact-button">Connect</a>
+            </div>
+        
+             <div class="mentor-card">
+                <img src="mentor2.jpg" alt="Mentor 2" class="mentor-image">
+                <h3>Jane </h3>
+                <p>Data Scientist, 8+ years experience</p>
+                <p class="mentor-skills">Skills: Data Analysis, Machine Learning, SQL</p>
+                <a href="#" class="contact-button">Connect</a>
+            </div>
+     
+             <div class="mentor-card">
+                <img src="mentor2.jpg" alt="Mentor 2" class="mentor-image">
+                <h3>Jane </h3>
+                <p>Data Scientist, 8+ years experience</p>
+                <p class="mentor-skills">Skills: Data Analysis, Machine Learning, SQL</p>
+                <a href="#" class="contact-button">Connect</a>
+            </div>
+            <div class="container-fluid">
+                <div class="background">
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                    <div class="cube"></div>
+                </div>
+            </div>
+       
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Contact Information</h3>
+            <p>For inquiries: <a href="mailto:contact@mentorconnect.com">contact@mentorconnect.com</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-icons">
+              <li>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="/privacy-policy" target="_blank">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" target="_blank">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Stay Updated</h3>
+            <form action="/subscribe" method="post">
+              <label for="email">Sign up for our newsletter:</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+
+          <div class="footer-section">
+            <h3>Accessibility</h3>
+            <button onclick="changeLanguage()">Change Language</button>
+            <button onclick="toggleAccessibilitySettings()">Accessibility Settings</button>
+          </div>
+
+          <div class="footer-section">
+            <p>© 2024 Mentor Connect. All rights reserved.</p>
+          </div>
+        </div>
+    </footer>
+     
+    <script>
+      function changeLanguage() {
+        alert('Language change feature coming soon!');
+      }
+
+      function toggleAccessibilitySettings() {
+        alert('Accessibility settings feature coming soon!');
+      }
+    </script>
+</body>
+</html>

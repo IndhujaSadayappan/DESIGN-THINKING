@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentee Remarks</title>
+  <link rel="stylesheet" href="remark.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="background">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+    </div>
+
+  <header>
+   
+    <h1>Mentee Remarks - <span id="menteeName">Mentee Name</span></h1>
+  </header>
+
+  <main>
+    <section class="profile-section">
+      <h2>Mentee Profile</h2>
+      <p><strong>Username:</strong> <span id="menteeUsername">username</span></p>
+      <p><strong>Name:</strong> <span id="menteeFullName">full name</span></p>
+    </section>
+
+    <section class="remarks-section">
+      <h2>Remarks</h2>
+      <div id="remarksList">
+
+      </div>
+      <textarea id="remarkInput" placeholder="Enter your remarks here..." rows="4" cols="50"></textarea><br>
+      <button class="action-btn" id="submitRemark">Submit Remark</button>
+    </section>
+  </main>
+  </div>
+  <script src="remark.js"></script>
+</body>
+</html>

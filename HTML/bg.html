@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bg.css">  
+</head>
+<body>
+  <header>
+    <div class="navbar-container">
+        <button class="toggle-btn" onclick="toggleNavbar()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul id="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="meeteedyna.php">Find Mentors</a></li>
+            <li><a href="event.html">Event details</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="right">
+                <a href="bg.html" style="border: 2px solid white; padding: 5px;">Add notes</a>
+                <a href="menteeprofile.html"><i id="iprofile" class="fa-solid fa-user"></i>Pegister</a>
+                <a href="login.html">Log out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </li>
+        </ul>
+    </div>
+</header>
+  <div class="dashboard-intro">
+    <h1>Mentee Management Dashboard</h1>
+    <p>Manage your mentees effectively and track their progress.</p>
+</div>
+  
+  <main>
+    <section id="add-notes">
+      <h2>Add Notes</h2>
+      <form id="note-form">
+        <label for="mentee-select">Select Mentee:</label>
+        <select id="mentee-select" required></select>
+        <textarea id="note-input" placeholder="Add a private note..." rows="4" required></textarea>
+        <button type="submit">Save Note</button>
+      </form>
+    </section>
+    
+    <section id="track-progress">
+      <h2>Track Progress</h2>
+      <div id="progress-details">
+        <p>Select a mentee to view their goals, milestones, and achievements.</p>
+      </div>
+    </section>
+    <div class="container-fluid">
+      <div class="background">
+          <div class="cube"></div>
+          <div class="cube"></div>
+          <div class="cube"></div>
+          <div class="cube"></div>
+          <div class="cube"></div>
+      </div>
+  </div>
+  
+  </main>
+  <script>
+    const mentees = [
+    { 
+      name: "Mentor 1", 
+      goals: "Learn coding", 
+      milestones: ["Completed HTML course", "Working on JavaScript basics"], 
+      achievements: ["Built a personal portfolio website"]
+    },
+    { 
+      name: "Mentor 2", 
+      goals: "Start a business", 
+      milestones: ["Researched market trends", "Created a business plan"], 
+      achievements: ["Secured initial funding"]
+    },
+    { 
+      name: "Mentor 3", 
+      goals: "Improve communication skills", 
+      milestones: ["Joined a speaking club", "Delivered a public speech"], 
+      achievements: ["Won a speech contest"]
+    },
+    { 
+      name: "Mentor 4", 
+      goals: "Master graphic design", 
+      milestones: ["Completed logo design course", "Designed a project portfolio"], 
+      achievements: ["Won a design competition"]
+    },
+    { 
+      name: "Mentor 5", 
+      goals: "Get into data science", 
+      milestones: ["Completed Python programming", "Started working on machine learning"], 
+      achievements: ["Built a data analysis project"]
+    },
+    { 
+      name: "Mentor 6", 
+      goals: "Enhance leadership skills", 
+      milestones: ["Joined a leadership workshop", "Started managing a team project"], 
+      achievements: ["Successfully led a team to achieve project goals"]
+    }
+  ];
+
+
+  const menteeSelect = document.getElementById("mentee-select");
+
+  mentees.forEach((mentee, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = mentee.name;
+    menteeSelect.appendChild(option);
+  });
+
+  
+  menteeSelect.addEventListener("change", function () {
+    const selectedIndex = this.value;
+    const progressDetails = document.getElementById("progress-details");
+
+    if (selectedIndex === "") {
+      progressDetails.innerHTML = "<p>Select a mentee to view their goals, milestones, and achievements.</p>";
+      return;
+    }
+
+    const mentee = mentees[selectedIndex];
+    progressDetails.innerHTML = `
+      <h3>${mentee.name}</h3>
+      <p><strong>Goals:</strong> ${mentee.goals}</p>
+      <p><strong>Milestones:</strong></p>
+      <ul>
+        ${mentee.milestones.map((milestone) => `<li>${milestone}</li>`).join("")}
+      </ul>
+      <p><strong>Achievements:</strong></p>
+      <ul>
+        ${mentee.achievements.map((achievement) => `<li>${achievement}</li>`).join("")}
+      </ul>
+    `;
+  });
+</script>
+</body>
+</html>

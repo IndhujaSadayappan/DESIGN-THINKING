@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor-Mentee Events Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="background">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+        </div>
+    </div>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="navbar-container">
+            <button class="toggle-btn" onclick="toggleNavbar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="navbar">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="meeteedyna.php">Find Mentors</a></li>
+                <li><a href="event.html">Event details</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="right">
+                    <a href="profile.php"><i id="iprofile" class="fa-solid fa-user"></i>Profile</a>
+                    <a href="login.php">Register</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="jumbotron">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Empowering Connections</h1>
+            <p class="lead">Discover and join events, connect with mentors, and accelerate your professional growth.</p>
+          
+        </div>
+    </section>
+
+    <section id="events" class="event-section py-5">
+        <div class="container">
+            <h2 class="event-title">Upcoming Events</h2>
+            <p class="text-center mb-9">Explore our events to learn, network, and grow.</p>
+            <div class="row g-4">
+
+               
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="event img2.jpg" class="card-img-top" alt="Event Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Career Development Workshop</h5>
+                            <p class="card-text">An in-depth workshop focusing on career planning and development.</p>
+                            <a href="readnet.html" button class="btn btn-primary" onclick="showEventDetails('event1')">Read More</button>
+                            <a href="reg1.php" class="btn btn-success">Register</a>
+                            <a href="_on.html" class="btn btn-primary">Co-ordinator</a>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="event img3.jpg" class="card-img-top" alt="Event Image 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Networking Essentials</h5>
+                            <p class="card-text">Connect with mentors and peers to grow your professional network.</p>
+                            <a href="readnet.html" button class="btn btn-primary" onclick="showEventDetails('event2')">Read More</button>
+                            <a href="reg2.php" class="btn btn-success">Register</a>
+                            <a href="_on.html" class="btn btn-primary">Co-ordinator</a>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="event img2.jpg" class="card-img-top" alt="Event Image 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Soft Skills Workshop</h5>
+                            <p class="card-text">Develop essential soft skills for personal and professional growth.</p>
+                            <a href="readnet.html" button class="btn btn-primary" onclick="showEventDetails('event3')">Read More</button>
+                            <a href="reg3.php" class="btn btn-success">Register</a>
+                            <a href="_on.html" class="btn btn-primary">Co-ordinator</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+<section id="usage-benefits" class="py-5">
+    <div class="container">
+        <h2 class="event-title"> Benefits of the Attending Events</h2>
+        <p class="text-center mb-5">Discover how attending our events can benefit your personal and professional growth.</p>
+
+        <div class="benefits">
+            <p class ="text-change-color"><strong>1. Enhanced Career Skills:</strong> Improve your soft skills, career development techniques, and personal branding to advance in your professional journey. Our events offer tailored workshops to suit your career stage, from entry-level to leadership development.</p>
+            <p class ="text-change-color"><strong>2. Networking Opportunities:</strong> Connect with industry professionals, mentors, and peers to build valuable relationships that last a lifetime. You’ll meet people who can offer insights into your field and open doors to career opportunities.</p>
+            <p class ="text-change-color"><strong>3. Increased Confidence:</strong> Gain confidence in your ability to lead, communicate, and navigate the workplace effectively through hands-on learning. Attending these events will equip you with the tools and experiences to confidently face any professional challenge.</p>
+            <p class ="text-change-color"><strong>4. Leadership Development:</strong> Participate in programs that focus on building leadership skills and emotional intelligence, preparing you for higher positions. These events help you become a more effective communicator, decision-maker, and team leader.</p>
+            <p class ="text-change-color"><strong>5. Practical Knowledge:</strong> Learn valuable strategies, tools, and techniques from experts that you can apply immediately in your career or business ventures. Our events are designed to offer real-world solutions and strategies that you can implement right away.</p>
+            <p class ="text-change-color"><strong>6. Personal Growth:</strong> Our events go beyond professional development to help you grow personally. Learn about self-awareness, mindfulness, and strategies for balancing work and life, which are essential for long-term success and happiness.</p>
+        </div>
+    </div>
+</section>
+
+
+    <section id="testimonials" class="testimonial-section py-5">
+        <div class="container">
+            <h2 class="event-title">What Our Participants Say</h2>
+            <p class="text-center mb-5">Read testimonials from those who have benefited from our events and mentorship programs.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="lead">"This workshop helped me reframe my career path and gain clarity on the steps I needed to take to move forward!"</p>
+                        <footer>- priya K, Marketing Professional</footer>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="lead">"The networking event was a game changer. I connected with mentors who truly understood my career challenges."</p>
+                        <footer>- John K., Business Analyst</footer>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="lead">"Thanks to the soft skills training, I was able to land my dream job and lead a team with confidence."</p>
+                        <footer>- Priyadharshini S, Project Manager</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Contact Information</h3>
+            <p>For inquiries: <a href="mailto:contact@mentorconnect.com">contact@mentorconnect.com</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-icons">
+              <li>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="/privacy-policy" target="_blank">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" target="_blank">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Stay Updated</h3>
+            <form action="/subscribe" method="post">
+              <label for="email">Sign up for our newsletter:</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+
+          <div class="footer-section">
+            <h3>Accessibility</h3>
+            <button onclick="changeLanguage()">Change Language</button>
+            <button onclick="toggleAccessibilitySettings()">Accessibility Settings</button>
+          </div>
+
+          <div class="footer-section">
+            <p>© 2024 Mentor Connect. All rights reserved.</p>
+          </div>
+        </div>
+    </footer>
+     
+    <script>
+      function changeLanguage() {
+        alert('Language change feature coming soon!');
+      }
+
+      function toggleAccessibilitySettings() {
+        alert('Accessibility settings feature coming soon!');
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

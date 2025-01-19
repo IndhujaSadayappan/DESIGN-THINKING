@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #001534, #0f4c75);
+            color: white;
+        }
+
+        .dashboard-container {
+            display: flex;
+            width: 100%;
+            z-index: 1;
+        }
+
+     
+        .sidebar {
+            width: 250px;
+            background-color: rgba(15, 76, 117, 0.9);
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .profile h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .profile p {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin: 15px 0;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .menu a.active,
+        .menu a:hover {
+            font-weight: bold;
+            color: #00d9ff;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 0.5px solid #ddd;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 30px;
+            background-color: #001534;
+            border-radius: 5px;
+        }
+
+        .header-profile-img {
+            width: 60px;
+            border-radius: 40%;
+            margin-right: 10px;
+            height: 60px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .add-course-btn {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-course-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-btn {
+            padding: 10px 15px;
+            margin-top: 15px;
+            background-color: #00d9ff;
+            color: #001534;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .card-btn:hover {
+            background-color: #00a6cc;
+        }
+
+        .stats h3 {
+            margin: 20px 0 10px;
+        }
+
+        .progress {
+            display: flex;
+            gap: 20px;
+        }
+
+        .chart {
+            flex: 1;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .chart-circle {
+            width: 100px;
+            height: 100px;
+            background-image: url('barchart.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+    
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .cube {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.3);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .cube:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-duration: 12s;
+        }
+
+        .cube:nth-child(2) {
+            top: 50%;
+            left: 25%;
+            animation-duration: 14s;
+        }
+
+        .cube:nth-child(3) {
+            top: 75%;
+            left: 70%;
+            animation-duration: 16s;
+        }
+
+        .cube:nth-child(4) {
+            top: 30%;
+            left: 80%;
+            animation-duration: 18s;
+        }
+
+        .cube:nth-child(5) {
+            top: 60%;
+            left: 40%;
+            animation-duration: 20s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        .document-section {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .document-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .document-upload,
+        .feedback-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .upload-btn,
+        .download-btn {
+            padding: 10px 15px;
+            background-color: #00d9ff;
+            color: #001534;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .upload-btn:hover {
+            background-color: #00a6cc;
+        }
+        .con {
+    color: white;
+    width: 40%;
+    position: relative;
+    background: black;
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left;
+    padding: 5px;
+}
+
+.con p {
+    font-size: 40px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.con ul li {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.con::after, .con::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    position: absolute;
+    background-image: conic-gradient(from var(--angle), transparent 70%, red, green, blue);
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: spin 5s linear infinite;
+}
+
+.con::before {
+    filter: blur(1.5em);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    0%{--angle: 0deg;}
+    100%{--angle: 360deg;}
+}
+
+.split {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.split img{
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.slideshow {
+    height: 45%;
+    width: 45%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slideshow-wrapper {
+    display: flex;
+    text-align: center;
+    width: 400%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    animation: slideshow 20s infinite;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes slideshow {
+    0%, 10% { left: 0; }
+    15%, 25% { left: -100%; }
+    30%, 40% { left: -200%; }
+    45%, 55% { left: -300%; }
+    60%, 70% { left: -200%; }
+    75%, 85% { left: -100%; }
+    90%, 100% { left: 0; }
+}
+
+hr{
+    height: 1px;
+    background-image: linear-gradient(to right, red, green, blue, green, red);
+}
+
+.cd *,
+.cd *::before,
+.cd *::after {
+    box-sizing: border-box;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    background-color: black;
+    color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(255, 255, 255, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 350px;
+    border: 5px solid transparent;
+    border-image: conic-gradient(from var(--angle), transparent 70%, blue);
+    border-image-slice: 1;
+    animation: spin 4s linear infinite;
+}
+
+
+.cards_item {
+    display: flex;
+    padding: 1rem;
+}
+
+.card_image {
+    position: relative;
+    max-height: 250px;
+}
+
+.card_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (min-width: 40rem) {
+    .cards_item {
+        width: 50%;
+    }
+}
+
+@media (min-width: 56rem) {
+    .cards_item {
+        width: 33.3333%;
+    }
+}
+
+.card {
+    background-color: black;
+    color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(255, 255, 255, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 350px;
+}
+
+.card_content {
+    position: relative;
+    padding: 16px 12px 32px 24px;
+    margin: 16px 8px 8px 0;
+    max-height: 290px;
+}
+
+.card_title {
+    position: relative;
+    margin: 0 0 24px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card_title::after {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #c89b3f;
+    content: "";
+}
+
+hr {
+    margin: 24px auto;
+    width: 50px;
+    border-top: 2px solid #c89b3f;
+}
+
+.card_text p {
+    margin: 0 0 24px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card_text p:last-child {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .toggle-btn {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+    </div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="profile.png" alt="Profile" class="profile-img">
+                <h2>GOWRI SHANKAR A</h2>
+                <p>gowrishankara.23cse@kongu.edu</p>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Enrolled Courses</a></li>
+                    <li><a href="#">My Quiz Attempts</a></li>
+                    <li><a href="#">My Course Activity</a></li>
+                    <li><a href="#">My Account</a></li>
+                </ul>
+                <hr>
+                <h3>Instructor</h3>
+                <ul>
+                    <li><a href="#">My Courses</a></li>
+                    <li><a href="#">My Lessons</a></li>
+                    <li><a href="#">My Topics</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="user-info">
+                    <img src="profile.png" alt="Profile" class="header-profile-img">
+                    <div>
+                        <p>GOWRISHANKAR A</p>
+                        <p>gowrishankara.23cse@kongu.edu</p>
+                    </div>
+                </div>
+                <button class="add-course-btn">View</button>
+            </header>
+
+            <section class="dashboard">
+                <div class="cards">
+                    <div class="card">
+                        <h3>Academic performance</h3>
+                       
+                        <button class="card-btn"><a href = "academic.html">View</a></button>
+                    </div>
+                    <div class="card">
+                        <h3>Other Activities</h3>
+                        
+                        <button class="card-btn"><a href = "preview.html">View</a></button>
+                    </div>
+                    <div class="card">
+                        <h3>Expolre More</h3>
+                     
+                        <button class="card-btn"><a href = "remark.html">View</a></button>
+                    </div>
+                </div>
+<br>
+                <div class="progress">
+                    <div class="chart">
+                        <div class="chart-circle"></div>
+                        <h3>Performance Chart</h3>
+                    </div>
+                    <div class="chart">
+                        <div class="chart-circle"></div>
+                        <h3>Progress Chart</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h3>Upload Documents</h3>
+                <div class="document-upload">
+                    <input type="file">
+                   
+                </div><br>
+                <h3>Download Materials</h3>
+                <div class="document-upload">
+                    <button class="download-btn">Download</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

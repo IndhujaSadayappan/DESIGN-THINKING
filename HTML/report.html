@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentee Report</title>
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="background">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+    </div>
+
+  <header>
+    <h1>Report for <span id="menteeName">Mentee Name</span></h1>
+  </header>
+
+  <main>
+    <section class="profile-section">
+      <h2>Mentee Profile</h2>
+      <p><strong>Username:</strong> <span id="menteeUsername">username</span></p>
+      <p><strong>Name:</strong> <span id="menteeFullName">full name</span></p>
+    </section>
+
+    <section class="report-section">
+      <h2>Reports</h2>
+      <div id="reportList"></div>
+      <textarea id="reportInput" placeholder="Enter your report here..." rows="4" cols="50"></textarea><br>
+      <button class="action-btn" id="submitReport">Submit Report</button>
+    </section>
+  </main>
+  </div>
+
+  <script src="report.js"></script>
+</body>
+</html>
